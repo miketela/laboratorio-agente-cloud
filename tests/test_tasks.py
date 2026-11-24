@@ -47,6 +47,12 @@ class TestTasks(unittest.TestCase):
             eliminar_tarea(tareas, 99)
         self.assertEqual(tareas, [tarea])
 
+    def test_eliminar_tarea_lista_vacia(self):
+        tareas = []
+        with self.assertRaisesRegex(ValueError, "^Tarea no encontrada$"):
+            eliminar_tarea(tareas, 1)
+        self.assertEqual(tareas, [])
+
     def test_eliminar_tarea_conserva_las_demas(self):
         tareas = []
         agregar_tarea(tareas, "Primera")
