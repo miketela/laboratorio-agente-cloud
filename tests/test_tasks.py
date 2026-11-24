@@ -22,6 +22,11 @@ class TestTasks(unittest.TestCase):
             [tareas[0]],
         )
 
+    def test_pendientes_categoria_inexistente(self):
+        tareas = []
+        agregar_tarea(tareas, "Leer documentación", "Estudio")
+        self.assertEqual(pendientes(tareas, "Personal"), [])
+
     def test_completar_tarea(self):
         tareas = []
         agregar_tarea(tareas, "Practicar")
